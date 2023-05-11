@@ -34,6 +34,15 @@ async function run() {
 
         const userCollection = client.db('userDB').collection('users');
 
+        // const productCollection = client.db('userDB').collection('products');
+
+
+        app.get('/users', async (req, res) => {
+            const cursor = userCollection.find();
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
 
         app.post('/users', async (req, res) => {
             const user = req.body
@@ -41,6 +50,15 @@ async function run() {
             const result = await userCollection.insertOne(user);
             res.send(result);
         })
+
+
+        app.delete('/user/:id', (req, res) => {
+            const id = req.params.id;
+            console.log('please delete from Database', id);
+        })
+
+
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
