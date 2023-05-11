@@ -1,5 +1,7 @@
 /**
- * MongoDb connection
+ *      --------------------------
+ *          MongoDb connection
+ *      -----------------------
  * 1. create account
  * 2. create an user with password
  * 3. whitelist Ip address
@@ -15,21 +17,37 @@
  * 6. const result = await userCollection.insertOne(user);
  * 7. res.send(result)
  * 
- * 
- *  CLIENT
+ *      ---------------
+ *          CLIENT
+ *      ---------------
  * 1. create fetch
  * 2. add second parameter
  * 3. provider method: 'POST'
  * 4. add headers: {"content-type" : "application/json"}
  * 5. add body: JSON.stringify(user)
  * 
- * 
- * READ
+ *      -------------
+ *          READ
+ *      --------------
  * 1. create a cursor = userCollection.find()
  * 2. const result = await curser.toArray()
  * 
  * 
+ *      ---------------
+ *          DELETE
+ *      ---------------
+ * 1. create app.delete('/users/:id', async(req, res) =>{})
+ * 2. specify unique objectId to delete the right user
+ * 3. const query = {_id: new ObjectId(id)}
+ * 4. const result = await userCollection.deleteOne(query)
  * 
+ * 
+ * 
+ *      ---------------
+ *          Client
+ *      ---------------
+ * 1. create dynamic url with id
+ * 2. mention the DELETE Method
  * 
  * 
  * **/ 
