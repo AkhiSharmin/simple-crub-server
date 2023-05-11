@@ -73,6 +73,10 @@ async function run() {
                     email: user.email
                 }
             }
+
+            const result = await userCollection.updateOne(filter, updatedUser, options);
+            res.send(result);
+
         })
 
 
